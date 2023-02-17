@@ -1,0 +1,19 @@
+<hr width="45%"><h1>Account Login</h1><hr width="45%">
+<%= flash[:notice] %>
+<%= form_with url: "/account/login", method: :post do |form| %>
+<%= image_tag "login.png", width:"200px"%> <br>
+    <div class= "field">
+        <%= form.label :email_id %>
+        <%= form.text_field :email_id , placeholder: "Enter email"%>
+    </div><br>
+    <div class= "field">
+        <%= form.label :password %>
+        <%= form.text_field :password, placeholder: "Enter password" %>
+    </div><br>
+    <div class= "actions">
+        <%= form.submit "Login" %>
+    </div>
+<% end %><br>
+<hr width="45%">
+<%= link_to "Forgot password?", password_forget_password_path %>
+<%# <%= image_tag "bg.jpg" , width:"50%"%> %>

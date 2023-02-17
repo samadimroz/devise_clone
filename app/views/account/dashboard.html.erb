@@ -1,0 +1,7 @@
+<hr width="45%">
+<%= flash[:notice] %>
+<h1><%= image_tag "dashboard.png", width:"25px"%> Dashboard </h1><br>
+<h3> Hii <%= @fname.capitalize %> <%= @lname.capitalize %> </h3>
+<br><%= image_tag @user.image, width:"50%" %> </h4>
+<h4><%if @user.mobile? && @user.mobile=="null"%> Mobile no: <%= @user.mobile %><br><%end%>
+<%if @user.dob?%>Date of birth: <%= @user.dob %><br><%end%>

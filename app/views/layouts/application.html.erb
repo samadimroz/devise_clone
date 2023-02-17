@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeviseClone</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="app/assets/stylesheets/style.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+
+  <body>
+    <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <%=image_tag "bg.jpg"%>
+        <div class="text">
+          <span class="text-1">New Learnings<br> New adventure</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+      <%# <div class="back">
+        <img class="backImg" src="assets/images/backImg.jpg" alt="">
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div> %>
+    </div>
+        <p class="navbar-text float-right">
+        <% if session[:user] %>
+          <%# Logged in as <strong><%= current_user.email %><%#</strong>. %>
+          <button><%= link_to "Reset password", password_reset_password_path %></button> |
+          <button><%= link_to "Edit profile", profile_edit_profile_path %></button> |
+          <button><%= link_to "Logout", account_logout_path %></button>
+        <% else %>
+          <%= link_to "Sign up", account_signup_path %> |
+          <%= link_to "Login", account_login_path %>
+        <% end %><br>
+        </p>
+          <%= yield %>
+    <%# <div class="forms">
+        <div class="form-content">
+          
+          <div class="login-form">
+            
+            <div class="title"></div>
+          <form action="#"> %>
+            <%# </div>
+        </form>
+      </div>
+      </form> %>
+    </div>
+    </div>
+    </div>
+  </div>
+    
+  </body>
+</html>

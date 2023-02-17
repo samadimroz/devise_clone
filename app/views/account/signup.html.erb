@@ -1,0 +1,51 @@
+<hr width="45%"><h1>Account Sign up</h1><hr width="45%">
+<%= flash[:notice] %>
+<%= image_tag "signup.png", width:"200px"%>
+<%= form_with url: "/account/signup", method: :post do |form| %>
+    
+    <% if @user.errors.any? %>
+        <div id="error_explained">
+            <h2><%= pluralize(@user.errors.count, "error")%></h2>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                <li> <%= message%> </li>
+                <% end %>
+            </ul><br>
+        </div>
+    <% end %>
+    
+    <div class= "field">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, placeholder: "Enter first name" %>
+    </div><br>
+    <div class= "field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name, placeholder: "Enter last name" %>
+    </div><br>
+    <div class= "field">
+        <%= form.label :email_id %>
+        <%= form.text_field :email_id, placeholder: "Enter email" %>
+    </div><br>
+    <div class= "field">
+        <%= form.label :password %>
+        <%= form.text_field :password, placeholder: "Enter password" %>
+    </div><br>
+    <div class= "field">
+        <%= form.label :confirm_password %>
+        <%= form.text_field :password_confirmation, placeholder: "Confirm password" %>
+    </div><br>
+    <div class= "field">
+        <%= form.label :mobile %>
+        <%= form.number_field :mobile, placeholder: "Enter mobile no"%>
+    </div><br>
+    <div class= "field">
+        <%= form.label :dob %>
+        <%= form.date_field :dob, placeholder: "Enter date of birth" %>
+    </div><br>
+    <div class= "actions">
+        <%= form.submit "Sign Up" %>
+    </div>
+<% end %><br/>
+<hr width="45%"><br/>
+
+Already have an account? <a href="http://localhost:3000/account/login">Login now</a></label></div> 
